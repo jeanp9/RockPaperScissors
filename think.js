@@ -13,23 +13,42 @@ function getComputerChoice(){
     return computerChoise
 }
 
-let computerChoise=getComputerChoice()
+
 // let playerSelection = prompt ('Elige ctmr')
-let playerSelection = "rock"
+// let playerSelection = "rock"
 
 function playRound(computerChoise,playerSelection){
+    let winnertxt
     let winner
     if(computerChoise === "paper" && playerSelection === "rock" ){
-        winner="You Lose! Paper beats Rock"
+        winnertxt="You Lose! Paper beats Rock"
+        winner="computerChoise"
     }if(computerChoise === "scissors" && playerSelection === "rock"){
-        winner="You WIN! Rock beats Paper"
+        winnertxt="You WIN! Rock beats Paper"
+        winner="playerSelection"
     }if(computerChoise === "gaa1" && playerSelection === "rock"){
-        winner="FUCKING GENIO"
+        winnertxt="FUCKING GENIO"
+        winner="playerSelection"
+        
     }if(computerChoise === "rock" && playerSelection === "rock"){
-        winner="Empate"
+        winnertxt="Empate"        
     }
-
-    return winner
+    return {winnertxt,winner}
 }
 
-console.log(playRound(computerChoise,playerSelection));
+// console.log(playRound(computerChoise,playerSelection));
+
+function game(){
+    let result
+    for (let index = 0; index < 5; index++) {
+        let playerSelection = prompt ('Elige!')
+        playerSelection = playerSelection.toLowerCase()
+        let computerChoise=getComputerChoice()
+         console.log(result = playRound(computerChoise,playerSelection));
+         if (index===4) {
+            console.log('End of the game!');
+         }
+    }  
+}
+
+console.log(game());
